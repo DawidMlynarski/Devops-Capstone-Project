@@ -19,7 +19,7 @@ jobs:
       run: docker compose build 
     - name: Push images to registry 
       run: |
-       docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_TOKEN}
-       docker push hiuston007/capstone-frontend
-       docker push hiuston007/capstone-api
+       docker login -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_TOKEN }}
+       docker push ${{ secrets.DOCKER_HUB_USER }}/capstone-frontend
+       docker push ${{ secrets.DOCKER_HUB_USER }}/capstone-api
 
