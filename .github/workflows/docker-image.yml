@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  [workflow_dispatch]
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the images with Docker Compose
+      run: docker compose build 
+    - name: Push images to registry 
+      run: |
+       docker push hiuston007/capstone-frontend
+       docker push hiuston007/capstone-api
+
